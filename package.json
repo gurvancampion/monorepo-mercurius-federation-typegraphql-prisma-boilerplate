@@ -1,0 +1,39 @@
+{
+  "name": "monorepo-mercurius-federation-typegraphql-prisma-boilerplate",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "pnpm --parallel run dev",
+    "dev:services": "pnpm --parallel run dev --filter=!gateway",
+    "dev:gateway": "pnpm run dev --filter gateway",
+    "start": "pnpm --parallel run start",
+    "build": "pnpm --parallel run build",
+    "lint": "eslint \"{src,packages,test}/**/*.{js,ts,tsx}\" --fix",
+    "format": "prettier --write \"packages/**/*.{js,ts,tsx}\""
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.2"
+  },
+  "devDependencies": {
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  }
+}
