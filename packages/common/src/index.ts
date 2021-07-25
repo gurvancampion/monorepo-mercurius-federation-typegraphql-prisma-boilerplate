@@ -1,2 +1,4 @@
-export const IS_PRODUCTION = process.env.NODE_ENV === 'production'
-export const IS_DEV = process.env.NODE_ENV === 'development'
+export const isProduction = process.env.NODE_ENV === 'production'
+export const isDevelopment = process.env.NODE_ENV === 'development'
+
+export * from './schema'

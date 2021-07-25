@@ -6,11 +6,16 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "pnpm --parallel run dev",
-    "dev:services": "pnpm --parallel run dev --filter=!gateway",
-    "dev:gateway": "pnpm run dev --filter gateway",
+    "dev:typecheck": "pnpm --parallel run dev:typecheck",
     "start": "pnpm --parallel run start",
     "build": "pnpm --parallel run build",
+    "generate": "pnpm --parallel run generate",
+    "migrate:dev": "pnpm --parallel run migrate:dev",
+    "migrate:deploy": "pnpm --parallel run migrate:deploy",
+    "migrate:reset": "pnpm --parallel run migrate:reset",
+    "docker:up": "pnpm --parallel run docker:up",
     "lint": "eslint \"{src,packages,test}/**/*.{js,ts,tsx}\" --fix",
     "format": "prettier --write \"packages/**/*.{js,ts,tsx}\""
   },

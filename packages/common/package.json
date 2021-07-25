@@ -7,10 +7,18 @@
   "license": "UNLICENSED",
   "main": "src/index.ts",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "lint": "eslint \"./**/*.{js,ts,tsx}\" --fix",
     "format": "prettier --write \"./**/*.{js,ts,tsx}\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "@apollo/federation": "^0.27.0",
+    "apollo-graphql": "^0.9.3",
+    "graphql": "^15.5.1",
+    "graphql-tag": "^2.12.5",
+    "nexus": "^1.1.0",
+    "type-graphql": "^1.1.1"
+  },
   "devDependencies": {
     "@types/node": "^15.12.5",
     "ts-node": "^10.0.0",

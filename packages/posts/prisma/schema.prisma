@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/schema/@generated/prisma-client"
+}
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output   = "../src/schema/@generated/type-graphql"
+}
+
+model Post {
+  id         String              @id @default(uuid())
+  userId     String
+  categories CategoriesOnPosts[]
+  title      String
+  content    String
+  createdAt  DateTime            @default(now())
+  updatedAt  DateTime            @updatedAt
+}
+
+model Category {
+  id    String              @id @default(uuid())
+  name  String              @unique
+  posts CategoriesOnPosts[]
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+}
+
+model CategoriesOnPosts {
+  post       Post     @relation(fields: [postId], references: [id])
+  postId     String   // relation scalar field (used in the `@relation` attribute above)
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String   // relation scalar field (used in the `@relation` attribute above)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@id([postId, categoryId])
+}

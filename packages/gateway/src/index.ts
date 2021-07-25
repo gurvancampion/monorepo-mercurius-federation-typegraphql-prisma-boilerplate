@@ -3,19 +3,21 @@ import mercurius from 'mercurius'
 import AltairFastify from 'altair-fastify-plugin'
 import waitOn = require('wait-on')
 import { WaitOnOptions } from 'wait-on'
-import { IS_DEV } from 'common'
+import { isDevelopment } from 'common'
 
 export const app = Fastify({
-  logger: IS_DEV,
+  logger: isDevelopment,
 })
 
-async function bootstrap() {
+async function main() {
   try {
-    const options: WaitOnOptions = {
-      resources: ['tcp:4001', 'tcp:4002'],
+    if (isDevelopment) {
+      const options: WaitOnOptions = {
+        resources: ['tcp:4001', 'tcp:4002'],
+      }
+      // Wait others services to start
+      await waitOn(options)
     }
-    // Wait others services to start
-    await waitOn(options)
 
     app.register(mercurius, {
       gateway: {
@@ -29,10 +31,10 @@ async function bootstrap() {
             url: 'http://127.0.0.1:4002/graphql',
           },
         ],
+        // pollingInterval: 2000,
       },
       graphiql: false,
       ide: false,
-      federationMetadata: true,
     })
 
     app.register(AltairFastify, {
@@ -42,10 +44,10 @@ async function bootstrap() {
       endpointURL: '/graphql',
     })
 
-    app.listen(4000)
+    await app.listen(4000)
   } catch (e) {
     app.log.error(e)
   }
 }
 
-bootstrap()
+main()

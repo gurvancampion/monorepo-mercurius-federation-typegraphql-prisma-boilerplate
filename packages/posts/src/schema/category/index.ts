@@ -1,0 +1,5 @@
+// export * as args from './category.args'
+// export * as inputs from './category.inputs'
+// export * as model from './category.model'
+// export * as mutations from './category.mutations'
+// export * as queries from './category.queries'
