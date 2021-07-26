@@ -5,7 +5,11 @@ import {
   resolvers,
   Post,
 } from './@generated/type-graphql'
-import { postModelEnhance, resolvePostReference } from './post'
+import {
+  postModelEnhance,
+  PostUserResolver,
+  resolvePostReference,
+} from './post'
 import User from './user/user.model'
 
 applyModelsEnhanceMap({
@@ -14,7 +18,7 @@ applyModelsEnhanceMap({
 
 export default buildFederatedSchema(
   {
-    resolvers: [User, ...resolvers],
+    resolvers: [User, PostUserResolver, ...resolvers],
     orphanedTypes: [Post],
     validate: false,
     emitSchemaFile: __dirname + '/../../schema.graphql',

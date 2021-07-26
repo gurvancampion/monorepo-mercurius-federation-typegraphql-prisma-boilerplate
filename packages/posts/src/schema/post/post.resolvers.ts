@@ -6,10 +6,10 @@ import User from '../user/user.model'
 
 @Resolver((of) => Post)
 export class PostUserResolver {
-  @FieldResolver((type) => Post, { nullable: true })
+  @FieldResolver((type) => User, { nullable: true })
   async user(@Root() post: Post): Promise<User | null> {
-    console.log('resolve')
     return {
+      // @ts-ignore
       __typename: 'User',
       id: post.userId,
     }

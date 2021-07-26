@@ -30,9 +30,8 @@
 
 ### Docs
 - [Mercurius](https://mercurius.dev/)
-- [Nexus prisma](https://github.com/prisma/nexus-prisma)
-- [Nexus prisma plugin](https://nexusjs.org/docs/plugins/prisma/overview)
-- [Nexus best practices](https://nexusjs.org/docs/guides/best-practices)
+- [Typegraphql](https://typegraphql.com/)
+- [Prisma + Typegraphql](https://prisma.typegraphql.com/)
 
 ### Resources
 
@@ -41,19 +40,19 @@
 #### Monorepo
 - https://github.com/PabloSzx/monorepo-gql
 
-#### Articles
-- https://dev.to/studio_hungry/how-to-create-a-graphql-api-with-prisma-and-nexus-144j
-- https://zach.codes/nexus-prisma-is-the-future-of-backend/
-
 #### Repos
-- https://github.com/m-leon/backend-boilerplates/tree/main/boilerplates/graphql-federation
-- https://github.com/ricardoalmeida/federation-nexus-prisma
 - https://github.com/juusot/federation-graphql-poc
-- https://github.com/2color/fastify-graphql-nexus-prisma
-- https://github.com/graphql-nexus/nexus-plugin-prisma/tree/main/examples/blog
+- https://github.com/sagahead-io/ecommerce-blueprint
+- https://github.com/leoltl/microservices-scaffold
 - https://github.com/chagadev/fullstack-boilerplate
 
-Nexus federation doesn't support key directives, we have to rely on stitching schema
+Solutions:
+https://github.com/autotelic/mercurius-remote-schema
+Nexus & Typegraphql doesn't support key directives for federation, try stitching schema?
 https://github.com/gmac/schema-stitching-handbook
-https://github.com/nayaabkhan/nexus-stitching-example
 https://github.com/gmac/schema-stitching-handbook/tree/master/subservice-languages/javascript
+
+#### Issues:
+- Mercurius does not merge Query, Mutation and Subscription with extend: 
+  https://github.com/mercurius-js/mercurius/issues/273
+  https://github.com/mercurius-js/mercurius/issues/348

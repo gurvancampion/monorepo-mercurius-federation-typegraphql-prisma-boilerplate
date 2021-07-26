@@ -19,6 +19,7 @@ export default buildFederatedSchema(
     emitSchemaFile: __dirname + '/../../schema.graphql',
   },
   {
+    // @ts-ignore
     User: { __resolveReference: resolveUserReference },
   },
 )
