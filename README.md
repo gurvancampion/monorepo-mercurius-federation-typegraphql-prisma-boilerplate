@@ -46,12 +46,6 @@
 - https://github.com/leoltl/microservices-scaffold
 - https://github.com/chagadev/fullstack-boilerplate
 
-Solutions:
-https://github.com/autotelic/mercurius-remote-schema
-Nexus & Typegraphql doesn't support key directives for federation, try stitching schema?
-https://github.com/gmac/schema-stitching-handbook
-https://github.com/gmac/schema-stitching-handbook/tree/master/subservice-languages/javascript
-
 #### Issues:
 - Mercurius does not merge Query, Mutation and Subscription with extend: 
   https://github.com/mercurius-js/mercurius/issues/273
