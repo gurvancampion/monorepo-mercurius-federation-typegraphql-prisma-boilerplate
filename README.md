@@ -2,6 +2,8 @@
 
 ## Description
 
+WIP
+
 ## Getting started
 
 ### Prerequisites
@@ -12,16 +14,17 @@
 ## Setup
 
 1. Clone repo
-2. Copy environment variables `cp .env.dev .env` in each service with your configuration
+2. Copy environment variables `cp .env.example .env` in each service with your configuration
 3. Install all dependencies by running `pnpm install`
 4. Init/Start all databases: `pnpm run docker:up`
 5. Run database migrations: `pnpm run migrate:dev`
-6. Run database seed // TODO
+6. Generate prisma client + typegraphql-prisma: `pnpm run generate`
+7. Run database seed // TODO
 
 ## Development
 
 - Start all services: `pnpm run dev`
-- Playground gateway: http://127.0.0.1:4000/altair
+- Altair gateway: http://127.0.0.1:4000/altair
 
 ## Production
 
