@@ -20,7 +20,10 @@
     "altair-fastify-plugin": "^4.0.8",
     "common": "workspace:^0.0.1",
     "fastify": "^3.19.2",
+    "fastify-autoload": "^3.8.0",
+    "fastify-plugin": "^3.0.0",
     "mercurius": "8.1.0",
+    "mercurius-auth": "^1.1.0",
     "wait-on": "^6.0.0"
   },
   "devDependencies": {

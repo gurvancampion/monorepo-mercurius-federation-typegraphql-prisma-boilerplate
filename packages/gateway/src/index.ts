@@ -1,11 +1,11 @@
 import Fastify from 'fastify'
-import mercurius from 'mercurius'
-import AltairFastify from 'altair-fastify-plugin'
+import autoload from 'fastify-autoload'
 import waitOn = require('wait-on')
 import { WaitOnOptions } from 'wait-on'
 import { isDevelopment } from 'common'
+import { join } from 'path'
 
-export const app = Fastify({
+const gateway = Fastify({
   logger: isDevelopment,
 })
 
@@ -19,34 +19,13 @@ async function main() {
       await waitOn(options)
     }
 
-    app.register(mercurius, {
-      gateway: {
-        services: [
-          {
-            name: 'users',
-            url: 'http://127.0.0.1:4001/graphql',
-          },
-          {
-            name: 'posts',
-            url: 'http://127.0.0.1:4002/graphql',
-          },
-        ],
-        // pollingInterval: 2000,
-      },
-      graphiql: false,
-      ide: false,
+    gateway.register(autoload, {
+      dir: join(__dirname, 'plugins'),
     })
 
-    app.register(AltairFastify, {
-      path: '/altair',
-      baseURL: '/altair/',
-      // 'endpointURL' should be the same as the mercurius 'path'
-      endpointURL: '/graphql',
-    })
-
-    await app.listen(4000)
+    await gateway.listen(4000)
   } catch (e) {
-    app.log.error(e)
+    gateway.log.error(e)
   }
 }
 

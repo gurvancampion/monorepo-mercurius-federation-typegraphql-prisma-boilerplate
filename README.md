@@ -48,6 +48,7 @@ WIP
 - https://github.com/sagahead-io/ecommerce-blueprint
 - https://github.com/leoltl/microservices-scaffold
 - https://github.com/chagadev/fullstack-boilerplate
+- https://github.com/YuriFontella/boilerplate-graphql-api
 
 #### Issues:
 - Mercurius does not merge Query, Mutation and Subscription with extend: 
